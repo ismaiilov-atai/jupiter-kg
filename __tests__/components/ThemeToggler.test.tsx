@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { ThemeToggler } from '@/components/themeToogler';
 
@@ -7,7 +7,7 @@ import Test_renderer from '@/lib/TestRenderer';
 
 describe('Theme toggling', () => {
 	it('renders toggling button', () => {
-		render(<Test_renderer element={<ThemeToggler />} />);
+		render(<ThemeToggler />);
 		const toggle = screen.getByLabelText('Toggle theme');
 		expect(toggle).toBeInTheDocument();
 	});
@@ -16,6 +16,9 @@ describe('Theme toggling', () => {
 		render(<Test_renderer element={<ThemeToggler />} />);
 		const toggle = screen.getByLabelText('Toggle theme');
 
-		expect(toggle).toHaveClass('rounded-[10px] ');
+		expect(toggle).toHaveAttribute('aria-pressed', 'false');
+		fireEvent(toggle, new MouseEvent('click'));
+
+		expect(toggle).not.toHaveAttribute('aria-pressed', 'true');
 	});
 });
