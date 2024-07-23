@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	:root {
+		--accent: 142.1 70.6% 45.3%;
+		--radius: 10px;
+	}
+
+	.dark {
+		--accent: 207, 51%, 53%, 1;
+	}
+}

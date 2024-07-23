@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { ThemeToggler } from '@/components/themeToogler';
+import { ThemeToggler } from '@/components/ThemeToogler';
 
 import Test_renderer from '@/lib/TestRenderer';
 

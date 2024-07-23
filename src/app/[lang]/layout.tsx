@@ -3,8 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 
-import LocaleSwitcherSelect from '@/components/LocaleSwitcherSelect';
-import { ThemeToggler } from '@/components/themeToogler';
+import Navbar from '@/components/Navigations/Navbar';
 
 import './globals.css';
 import Providers from '@/providers';
@@ -27,10 +26,7 @@ export default async function RootLayout({
 			<body className={inter.className}>
 				<NextIntlClientProvider messages={messages}>
 					<Providers>
-						<div className='flex w-full justify-around'>
-							<LocaleSwitcherSelect />
-							<ThemeToggler />
-						</div>
+						<Navbar />
 						{children}
 					</Providers>
 				</NextIntlClientProvider>
