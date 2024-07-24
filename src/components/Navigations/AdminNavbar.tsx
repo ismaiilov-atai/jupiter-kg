@@ -1,7 +1,6 @@
 import {
 	NavigationMenu,
 	NavigationMenuItem,
-	NavigationMenuLink,
 	NavigationMenuList,
 	navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
@@ -14,18 +13,14 @@ const AdminNavbar = () => {
 		<NavigationMenu>
 			<NavigationMenuList>
 				<NavigationMenuItem>
-					<Link href='/products' legacyBehavior passHref>
-						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-							Products
-						</NavigationMenuLink>
+					<Link href='/products' className={navigationMenuTriggerStyle()}>
+						Products
 					</Link>
 				</NavigationMenuItem>
 
 				<NavigationMenuItem>
-					<Link href='/others' legacyBehavior passHref>
-						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-							Products
-						</NavigationMenuLink>
+					<Link href='/others' className={navigationMenuTriggerStyle()}>
+						Products
 					</Link>
 				</NavigationMenuItem>
 			</NavigationMenuList>
