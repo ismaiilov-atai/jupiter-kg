@@ -1,5 +1,5 @@
 import LocaleSwitcherSelect from '../LocaleSwitcherSelect';
-import { ThemeToggler } from '../ThemeToogler';
+import ThemeToggler from '../ThemeToggler';
 
 const Navbar = () => {
 	return (

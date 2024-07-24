@@ -6,7 +6,7 @@ import * as React from 'react';
 
 import { Toggle } from './ui/toggle';
 
-export function ThemeToggler() {
+export default function ThemeToggler() {
 	const { theme, setTheme } = useTheme();
 	const setThemeMode = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
