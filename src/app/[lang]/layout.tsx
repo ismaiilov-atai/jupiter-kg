@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Inter } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
-import LocaleSwitcherSelect from '@/components/LocaleSwitcherSelect';
-import { ThemeToggler } from '@/components/themeToogler';
+import Navbar from '@/components/Navigations/Navbar';
 
 import './globals.css';
 import Providers from '@/providers';
 
-const inter = Inter({ subsets: ['latin'] });
+const roboto = Roboto({
+	weight: '400',
+	subsets: ['latin'],
+	display: 'swap',
+});
 
 export const metadata: Metadata = {
 	title: 'Jupiter KG',
@@ -24,13 +27,10 @@ export default async function RootLayout({
 	const messages = await getMessages();
 	return (
 		<html lang='en' suppressHydrationWarning>
-			<body className={inter.className}>
+			<body className={roboto.className}>
 				<NextIntlClientProvider messages={messages}>
 					<Providers>
-						<div className='flex w-full justify-around'>
-							<LocaleSwitcherSelect />
-							<ThemeToggler />
-						</div>
+						<Navbar />
 						{children}
 					</Providers>
 				</NextIntlClientProvider>
