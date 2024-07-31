@@ -1,14 +1,19 @@
-import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextResponse } from 'next/server';
+import { AppRouteHandlerFnContext } from './lib/types/next-auth';
+import { authMiddleware } from './middlewares/auth-middleware';
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['en', 'ru', 'kg'],
+export const middleware = (
+  request: NextRequest,
+  ctx: AppRouteHandlerFnContext
+): NextResponse => {
+  if (request.nextUrl.pathname.startsWith('/auth')) {
+    return NextResponse.next();
+  }
 
-  // Used when no locale matches
-  defaultLocale: 'ru'
-});
+  return authMiddleware(request, ctx) as NextResponse;
+};
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(en|ru|kg)/:path*']
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

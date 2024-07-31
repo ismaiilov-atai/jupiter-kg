@@ -9,6 +9,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 
 import { ADMIN_NAV_PATHS } from '@/lib/constants';
+
 import { Link, usePathname } from '@/navigation';
 
 const AdminNavbar = () => {
