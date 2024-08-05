@@ -1,11 +1,21 @@
+import { access } from 'fs';
 import { useTranslations } from 'next-intl';
 import { use } from 'react';
+import { toast } from 'sonner';
+
+import ToasterClient from '@/components/ToasterClient';
+
+import { getBoardingRequiredCookie } from '@/lib/actions/boarding';
+import { Access_Redirects } from '@/lib/constants';
 
 import { auth, signOut } from '$/auth';
-import { getBoardingRequiredCookie } from '@/lib/actions';
 import { redirect } from '@/navigation';
 
-export default function Home() {
+export default function Home({
+	searchParams,
+}: {
+	searchParams: { [key: string]: string | string[] | undefined };
+}) {
 	const t = useTranslations('Landing');
 	/*
 		if user is admin redirect it to admin page
@@ -23,11 +33,12 @@ export default function Home() {
 				action={async () => {
 					'use server';
 					await signOut();
-					console.log('here ---------- out');
 				}}
 			>
 				<button type='submit'>Sign Out</button>
 			</form>
+
+			<ToasterClient access={searchParams['access'] || ''} />
 		</main>
 	);
 }

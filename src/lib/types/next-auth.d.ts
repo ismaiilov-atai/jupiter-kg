@@ -5,6 +5,8 @@ export interface AppRouteHandlerFnContext {
   params?: Record<string, string | string[]>;
 }
 
+export type ClientUserSession = Pick<AdapterUser, | 'id' | 'email' | 'emailVerified' | 'image' | 'role'>
+
 declare module "next-auth" {
   /**
    * Returned by `auth`, `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context

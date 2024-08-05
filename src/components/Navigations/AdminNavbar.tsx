@@ -16,12 +16,12 @@ const AdminNavbar = () => {
 	const path = usePathname();
 
 	return (
-		<section className='flex items-center'>
+		<section className='flex w-1/4 items-center'>
 			<NavigationMenu orientation='vertical'>
 				<NavigationMenuList>
 					{ADMIN_NAV_PATHS.map((item, index) => {
 						return (
-							<NavigationMenuItem key={index}>
+							<NavigationMenuItem key={index} className='w-full'>
 								<Link
 									href={item.path}
 									className={`${navigationMenuTriggerStyle()} ${item.path === path && 'bg-slate-50'}`}

@@ -1,9 +1,8 @@
 'use server'
 
-import { redirect } from '@/navigation';
 import { cookies } from 'next/headers'
-
-const BOARDING_COOKIE_KEY = 'first_time';
+import { redirect } from '../../navigation'
+import { BOARDING_COOKIE_KEY } from '../constants';
 
 async function setBoardingRequiredCookie(isFirstTime: boolean) {
   const oneMonth = 30.44 * 24 * 60 * 60 * 1000;
