@@ -24,12 +24,14 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
 	children,
+	params: { locale },
 }: Readonly<{
 	children: React.ReactNode;
+	params: { locale: string };
 }>) {
 	const messages = await getMessages();
 	return (
-		<html lang='en' suppressHydrationWarning>
+		<html lang={locale} suppressHydrationWarning>
 			<body className={roboto.className}>
 				<NextIntlClientProvider messages={messages}>
 					<Providers>

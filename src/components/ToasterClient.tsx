@@ -8,22 +8,23 @@ import { toast } from 'sonner';
 import { Access_Redirects } from '@/lib/constants';
 
 interface ToasterProps {
-	access: string | string[];
+	searchParam: string | string[];
 }
 
-const ToasterClient = ({ access }: ToasterProps) => {
+const ToasterClient = ({ searchParam }: ToasterProps) => {
 	const path = usePathname();
 	const router = useRouter();
 	const [show, setShow] = useState(true);
 
 	useEffect(() => {
-		if (access) {
-			if (access === Access_Redirects.ADMIN_ACCESS_REQUIRED) {
+		if (searchParam) {
+			if (searchParam === Access_Redirects.ADMIN_ACCESS_REQUIRED) {
 				toast.info('Access required', {
 					description: 'Admin access required to navigate to this page',
 					duration: 2000,
 				});
 			}
+			// add more control flows to show other toasts
 			router.replace(path, { scroll: false });
 		}
 		setShow(false);

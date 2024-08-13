@@ -1,6 +1,7 @@
 import { AuthError } from 'next-auth';
 
 import { signIn } from '$/auth';
+import { Button } from './ui/button';
 
 export function SignIn() {
 	const sign = async () => {
@@ -22,7 +23,7 @@ export function SignIn() {
 
 	return (
 		<form action={sign}>
-			<button type='submit'>Signin with Google</button>
+			<Button type='submit'>Signin with Google</Button>
 		</form>
 	);
 }

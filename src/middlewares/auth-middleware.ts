@@ -30,7 +30,7 @@ export const authMiddleware = (
     if (!req.cookies.get(BOARDING_COOKIE_KEY) && !path.includes('/onboarding')) {
       return NextResponse.redirect(new URL('/onboarding', req.url));
     }
-
+    console.log(req.cookies.get(BOARDING_COOKIE_KEY))
     return intlMiddleware(request);
   })(request, ctx);
 };

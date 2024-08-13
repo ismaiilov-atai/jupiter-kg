@@ -10,11 +10,9 @@ export default function Error({
 	reset: () => void;
 }) {
 	return (
-		<html>
-			<body>
-				<h2>Something went wrong global!</h2>
-				<button onClick={() => reset()}>Try again</button>
-			</body>
-		</html>
+		<>
+			<h2>Something went wrong global!</h2>
+			<button onClick={() => reset()}>Try again</button>
+		</>
 	);
 }
