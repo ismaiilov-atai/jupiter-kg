@@ -1,5 +1,15 @@
 {
 	"Landing": {
-		"title": "Hello World"
+		"title0": "Premium Quality",
+		"description0": "Our stickers are crafted with top-notch German technology, ensuring the highest quality and durability",
+		"title1": "Easy Ordering",
+		"description1": "Experiance the simplast and most conviniant way to order your favorate stickers",
+		"title2": "Quick Delivery",
+		"description2": "Experiance the simplast and most conviniant way to order your favorate stickers",
+		"next": "next",
+		"welcome": "Welcome to JupiterKG",
+		"welcome_desc": "Sign up or feel free to explore",
+		"signup": "Sign up",
+		"explore": "Explore"
 	}
 }

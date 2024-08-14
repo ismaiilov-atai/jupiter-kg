@@ -1,23 +1,29 @@
 import { useTranslations } from 'next-intl';
-import { use } from 'react';
 
-import { getBoardingRequiredCookie } from '@/lib/actions';
-import { redirect } from '@/navigation';
+import ToasterClient from '@/components/ToasterClient';
+import { Button } from '@/components/ui/button';
 
-export default function Home() {
+import { signOut } from '$/auth';
+
+export default function Home({
+	searchParams,
+}: {
+	searchParams: { [key: string]: string | string[] | undefined };
+}) {
 	const t = useTranslations('Landing');
-	/*
-		if user is admin redirect it to admin page
-		redirect('/admin');
-		
-		checks user if here for the first time and redirects accordingly
-		const userFirstTime = use(getBoardingRequiredCookie());
-		if (userFirstTime) redirect('/onboarding'); 
-	*/
 
 	return (
 		<main className='flex min-h-screen flex-col items-center justify-between p-24'>
-			<h1>{t('title')}</h1>
+			<h1>{t('title1')}</h1>
+			<form
+				action={async () => {
+					'use server';
+					await signOut();
+				}}
+			>
+				<Button type='submit'>Sign Out</Button>
+			</form>
+			<ToasterClient searchParam={searchParams['access'] || ''} />
 		</main>
 	);
 }

@@ -12,8 +12,9 @@ import {
 	SelectValue,
 } from '@/components/ui/select';
 
-import { locales } from '@/config';
 import { LANG_SELECTORS } from '@/lib/constants';
+
+import { locales } from '@/config';
 import { usePathname, useRouter } from '@/navigation';
 
 export default function LocaleSwitcherSelect() {
@@ -31,7 +32,7 @@ export default function LocaleSwitcherSelect() {
 			<SelectTrigger className='w-[100px] rounded-[8px] border-0 bg-gray-50 ring-0 focus-visible:ring-0 focus-visible:ring-offset-0'>
 				<SelectValue placeholder={LANG_SELECTORS[locale]} />
 			</SelectTrigger>
-			<SelectContent>
+			<SelectContent id='lang-select'>
 				{locales.map((current, index) => {
 					return (
 						<Fragment key={`${current}${index}`}>

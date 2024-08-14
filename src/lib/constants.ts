@@ -27,3 +27,14 @@ export const ADMIN_NAV_PATHS = [
     path: `/admin${item.path}`
   } : item)
 )
+
+export const BOARDING_COOKIE_KEY = 'jupiter-boarding-completed';
+
+export enum Access_Redirects {
+  ADMIN_ACCESS_REQUIRED = 'AdminAccessRequired'
+}
+
+export enum BoardingButtonType {
+  SIGNUP = 'signup',
+  EXPLORE = 'explore',
+}
