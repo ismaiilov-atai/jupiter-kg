@@ -27,10 +27,10 @@ export const authMiddleware = (
       homeUrl.searchParams.set('access', Access_Redirects.ADMIN_ACCESS_REQUIRED)
       return NextResponse.redirect(homeUrl)
     }
-    if (!req.cookies.get(BOARDING_COOKIE_KEY) && !path.includes('/onboarding')) {
+    if (!req.cookies.get(BOARDING_COOKIE_KEY) && !path.includes('/onboarding') && path !== '/') {
       return NextResponse.redirect(new URL('/onboarding', req.url));
     }
-    console.log(req.cookies.get(BOARDING_COOKIE_KEY))
+
     return intlMiddleware(request);
   })(request, ctx);
 };
