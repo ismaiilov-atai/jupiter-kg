@@ -1,7 +1,7 @@
 'use server'
 
 import { db } from '../db';
-import { Sticker } from '../types/sticker';
+import { Sticker } from '../types/types';
 
 export const uploadSticker = async (data: FormData) => {
   try {

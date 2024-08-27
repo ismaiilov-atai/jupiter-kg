@@ -16,20 +16,7 @@ import {
 	upladStickerWithStatus,
 	uploadImageWithStatus,
 } from '@/lib/helpers/uploadStickerWithStatus';
-import { Sticker } from '@/lib/types/sticker';
-
-interface TagType {
-	id: string;
-	value: string;
-	label: string;
-}
-
-export interface IStickerInput {
-	title: string;
-	description: string;
-	price: number;
-	file: FileList;
-}
+import { IStickerInput, Sticker, TagType } from '@/lib/types/types';
 
 function CreateSticker() {
 	const [price, setPrice] = useState<number>(40);

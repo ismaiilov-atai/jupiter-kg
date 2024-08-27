@@ -1,9 +1,10 @@
 'use server'
 
 import { db } from '../db'
-import { TagsType } from '@/app/[lang]/admin/create-sticker/page'
+import { TagType } from '$/src/lib/types/types'
 
-export const getTags = async (): Promise<TagsType[]> => {
+
+export const getTags = async (): Promise<TagType[]> => {
   try {
     return await db.tag.findMany({});
   } catch (error) {

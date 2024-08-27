@@ -2,7 +2,7 @@ import { toast } from 'sonner';
 import { uploadImage } from '../actions/uploadImage';
 
 import { uploadSticker } from '../actions/uploadSticker';
-import { Sticker } from '../types/sticker';
+import { Sticker } from '../types/types';
 
 export const uploadImageWithStatus = async (files: FileList) => {
   const formData = new FormData();
