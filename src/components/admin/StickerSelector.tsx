@@ -2,10 +2,10 @@ import { UploadIcon } from 'lucide-react';
 import Image from 'next/image';
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
+import { IStickerInput } from '@/lib/types/types';
+
 import { Button } from '../ui/button';
 import { Label } from '../ui/label';
-
-import { IStickerInput } from '@/app/[lang]/admin/create-sticker/page';
 
 interface StickerSelectorProps {
 	state: string | undefined;

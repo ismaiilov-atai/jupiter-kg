@@ -1,9 +1,9 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
+import { IStickerInput } from '@/lib/types/types';
+
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-
-import { IStickerInput } from '@/app/[lang]/admin/create-sticker/page';
 
 interface StickerInputsProps {
 	fieldName: 'title' | 'description' | 'price';
