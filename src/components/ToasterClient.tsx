@@ -1,34 +1,29 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { toast } from 'sonner';
 
 import { Access_Redirects } from '@/lib/constants';
 
 interface ToasterProps {
-	searchParam: string | string[];
+	redirectCookieVal: string;
 }
 
-const ToasterClient = ({ searchParam }: ToasterProps) => {
-	const path = usePathname();
-	const router = useRouter();
-	const [show, setShow] = useState(true);
-
+const ToasterClient = ({ redirectCookieVal }: ToasterProps) => {
 	useEffect(() => {
-		if (searchParam) {
-			if (searchParam === Access_Redirects.ADMIN_ACCESS_REQUIRED) {
-				toast.info('Access required', {
-					description: 'Admin access required to navigate to this page',
-					duration: 2000,
-				});
+		if (redirectCookieVal) {
+			switch (redirectCookieVal) {
+				case Access_Redirects.ADMIN_ACCESS_REQUIRED:
+					toast.info('Admins only page');
+					break;
+				case Access_Redirects.SIGNIN_REDIRECT:
+					toast.info('Please signin to have access');
+					break;
+				default:
+					break;
 			}
-			// add more control flows to show other toasts
-			router.replace(path, { scroll: false });
 		}
-		setShow(false);
-	}, [show]);
+	}, [redirectCookieVal]);
 
 	return <></>;
 };
