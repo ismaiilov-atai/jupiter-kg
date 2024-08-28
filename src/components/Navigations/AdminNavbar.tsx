@@ -25,6 +25,7 @@ const AdminNavbar = () => {
 								<Link
 									href={item.path}
 									className={`${navigationMenuTriggerStyle()} ${item.path === path && 'bg-slate-50'}`}
+									prefetch={false}
 								>
 									{item.title}
 								</Link>
