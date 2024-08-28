@@ -32,11 +32,11 @@ export default async function RootLayout({
 	children: React.ReactNode;
 	params: { locale: string };
 }>) {
-	
-		const messages = await getMessages();
-		const session = await auth();
-		await findOrInitBag();
-	
+	const [messages, session, _] = await Promise.all([
+		await getMessages(),
+		await auth(),
+		await findOrInitBag(),
+	]);
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
