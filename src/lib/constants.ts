@@ -31,10 +31,13 @@ export const ADMIN_NAV_PATHS = [
 export const BOARDING_COOKIE_KEY = 'jupiter-boarding-completed';
 
 export enum Access_Redirects {
-  ADMIN_ACCESS_REQUIRED = 'AdminAccessRequired'
+  REDIRECT_COOKIE_KEY = 'jupiter-redirect',
+  ADMIN_ACCESS_REQUIRED = 'admin-required',
+  SIGNIN_REDIRECT = 'signin-required'
 }
 
 export enum BoardingButtonType {
   SIGNUP = 'signup',
   EXPLORE = 'explore',
 }
+export const STICKER_SIZES = ['S', 'M', 'L'];

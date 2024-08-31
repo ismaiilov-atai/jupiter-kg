@@ -1,15 +1,20 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
 
 import LocaleSwitcherSelect from '../LocaleSwitcherSelect';
+import { ShoppingBag } from '../ShoppingBag';
+import SignupDialog from '../SignupDialog/SignupDialog';
 import ThemeToggler from '../ThemeToggler';
 
 const Navbar = () => {
 	const pathname = usePathname();
 	const isBoarding = pathname.includes('onboarding');
+	const { data: session } = useSession();
+
 	return (
 		<div
 			className={cn(
@@ -21,6 +26,8 @@ const Navbar = () => {
 		>
 			<LocaleSwitcherSelect />
 			<ThemeToggler />
+			<ShoppingBag />
+			{!session?.user && <SignupDialog />}
 		</div>
 	);
 };

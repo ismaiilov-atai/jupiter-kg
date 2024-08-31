@@ -7,8 +7,11 @@ import { Toaster } from 'sonner';
 
 import Navbar from '@/components/Navigations/Navbar';
 
+import { findOrInitBag } from '@/lib/actions/getBag';
+
+import { auth } from '$/auth';
 import './globals.css';
-import Providers from '@/providers';
+import Providers from '@/providers/providers';
 
 const roboto = Roboto({
 	weight: '400',
@@ -29,13 +32,18 @@ export default async function RootLayout({
 	children: React.ReactNode;
 	params: { locale: string };
 }>) {
-	const messages = await getMessages();
+	const [messages, session, _] = await Promise.all([
+		await getMessages(),
+		await auth(),
+		await findOrInitBag(),
+	]);
+
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body className={roboto.className}>
 				<NextIntlClientProvider messages={messages}>
 					<Providers>
-						<Navbar />
+						{session?.user.role !== 'admin' && <Navbar />}
 						{children}
 						<Toaster />
 					</Providers>

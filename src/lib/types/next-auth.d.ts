@@ -1,3 +1,4 @@
+import { Cart } from '@prisma/client';
 import NextAuth, { type DefaultSession } from "next-auth"
 import { JWT } from "next-auth/jwt";
 

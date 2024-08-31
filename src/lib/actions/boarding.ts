@@ -6,20 +6,17 @@ import { redirect } from '@/navigation';
 
 interface BoardingCookieProps {
   completed: boolean,
-  buttonType: BoardingButtonType
+  buttonType?: BoardingButtonType
 }
 
-function setBoardingCompletedCookie({ completed, buttonType }: BoardingCookieProps) {
+function setBoardingCompletedCookie({ completed, buttonType = BoardingButtonType.EXPLORE }: BoardingCookieProps) {
   const oneMonth = 30.44 * 24 * 60 * 60 * 1000;
   cookies().set({
     name: BOARDING_COOKIE_KEY,
     value: `${completed}`,
-    expires: Date.now() + oneMonth
+    expires: Date.now() + oneMonth,
   })
 
-  if (buttonType === BoardingButtonType.SIGNUP) {
-    redirect('/signin');
-  }
   if (buttonType === BoardingButtonType.EXPLORE) {
     redirect('/');
   }
